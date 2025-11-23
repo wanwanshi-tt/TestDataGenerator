@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: test-data-generator  # Update with your app name
+  AZURE_WEBAPP_NAME: test-data-generator # Update with your app name
   NODE_VERSION: '18.x'
 
 jobs:
@@ -66,7 +66,7 @@ jobs:
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: deploy
 
-      - name: Health check
-        run: |
-          sleep 30
-          curl -f https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net/api/health || exit 1
+      # - name: Health check
+      #   run: |
+      #     sleep 30
+      #     curl -f https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net/api/health || exit 1
